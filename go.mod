@@ -4,7 +4,19 @@ go 1.26.0
 
 require (
 	github.com/cB-Sigma/iotcrypto v0.2.0
+	github.com/eclipse/paho.golang v0.23.0
+	github.com/pion/dtls/v3 v3.1.10
 	golang.org/x/crypto v0.57.0
 )
 
-require golang.org/x/sys v0.48.0 // indirect
+require (
+	github.com/gorilla/websocket v1.5.3 // indirect
+	github.com/pion/logging v0.2.4 // indirect
+	github.com/pion/transport/v5 v5.0.0 // indirect
+	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
+	github.com/xdg-go/scram v1.2.0 // indirect
+	github.com/xdg-go/stringprep v1.0.4 // indirect
+	golang.org/x/net v0.58.0 // indirect
+	golang.org/x/sys v0.48.0 // indirect
+	golang.org/x/text v0.42.0 // indirect
+)

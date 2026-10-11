@@ -1,4 +1,4 @@
-mqttsn (MQTT-SN 1.2 and 2.0 packet codecs, in Go)
+mqttsn (MQTT-SN 1.2 and 2.0 codecs, clients, gateway and forwarder, in Go)
 Copyright 2026 Abhinav Gautam
 
 This module is licensed under the Apache License, Version 2.0 (LICENSE).
@@ -32,6 +32,11 @@ Dependencies
 - github.com/cB-Sigma/iotcrypto (Apache-2.0, Copyright 2026 Abhinav
   Gautam; its ccm package is BSD-3-Clause in part, see its NOTICE):
   AES-CCM for the Protection Encapsulation.
+- github.com/eclipse/paho.golang (EPL-2.0 or EDL-1.0, Copyright the
+  Eclipse Paho contributors): the MQTT 5 client of gateway/mqttbroker,
+  used under the EDL-1.0 (BSD-3-Clause).
+- github.com/pion/dtls/v3 and github.com/pion/transport (MIT, Copyright
+  the Pion contributors): DTLS 1.2 for the dtls package.
 - golang.org/x/crypto (BSD-3-Clause, Copyright The Go Authors):
   ChaCha20-Poly1305; golang.org/x/sys (BSD-3-Clause), indirectly.
 - The Go standard library (BSD-3-Clause, Copyright The Go Authors).
@@ -42,3 +47,15 @@ Test data
 Client IDs, topics, keys and passwords in the tests and the examples are
 made-up demo values. The CMAC vectors in sn2/protect_test.go are those of
 RFC 4493.
+
+Interop test peers (interop/, not part of the module's packages)
+-----------------------------------------------------------------
+
+The nested test-only module interop/ builds and runs these in Docker on
+the tester's machine; none of their code is in this repository:
+
+- Eclipse Paho MQTT-SN embedded-c at e1e1b73 (EPL-2.0 / EDL-1.0): the
+  MQTTSNPacket sample clients.
+- bisquitt 0.9.1 (github.com/energostack/bisquitt, EPL-2.0): gateway,
+  bisquitt-pub and bisquitt-sub.
+- Mosquitto 2.0 (EPL-2.0 / EDL-1.0) from Debian and Alpine.
