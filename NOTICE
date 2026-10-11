@@ -1,0 +1,44 @@
+mqttsn (MQTT-SN 1.2 and 2.0 packet codecs, in Go)
+Copyright 2026 Abhinav Gautam
+
+This module is licensed under the Apache License, Version 2.0 (LICENSE).
+
+The code was written for SigmaM2M, a oneM2M platform, from the MQTT-SN
+specifications listed in PROVENANCE.md. It contains no code from other
+projects. The source files that come from SigmaM2M (codec.go, sn2/ and
+their tests) carry no per-file copyright header, the convention of the
+code they come from; the copyright line above covers them. Files added
+for this module carry "Copyright 2026 Abhinav Gautam" and
+"SPDX-License-Identifier: Apache-2.0".
+
+Specifications
+--------------
+
+MQTT-SN 1.2 (IBM, 2013) and the OASIS MQTT-SN 2.0 Committee
+Specification Draft 01 are not redistributed. Packet types, field
+layouts, codes and the draft's protection scheme numbers are facts,
+written in our own words with clause references; no text of either
+document is reproduced.
+
+Trademarks
+----------
+
+MQTT is a name used by OASIS. This module is not made, endorsed or
+supported by OASIS, IBM or the Eclipse Foundation.
+
+Dependencies
+------------
+
+- github.com/cB-Sigma/iotcrypto (Apache-2.0, Copyright 2026 Abhinav
+  Gautam; its ccm package is BSD-3-Clause in part, see its NOTICE):
+  AES-CCM for the Protection Encapsulation.
+- golang.org/x/crypto (BSD-3-Clause, Copyright The Go Authors):
+  ChaCha20-Poly1305; golang.org/x/sys (BSD-3-Clause), indirectly.
+- The Go standard library (BSD-3-Clause, Copyright The Go Authors).
+
+Test data
+---------
+
+Client IDs, topics, keys and passwords in the tests and the examples are
+made-up demo values. The CMAC vectors in sn2/protect_test.go are those of
+RFC 4493.
